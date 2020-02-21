@@ -12,7 +12,7 @@ public class ProductDao {
 
 
 	public Product getBrand(String brandName) {
-		Scanner sc = new FileConnection().getConnection();
+		Scanner sc = new Scanner(new FileConnection().getConnection());
 		while (sc.hasNext()) {
 			String data = sc.nextLine();
 			String[] details = data.split(",");
@@ -25,7 +25,7 @@ public class ProductDao {
 	}
 
 	public Products getBrands(String brandName) {
-		Scanner sc = new FileConnection().getConnection();
+		Scanner sc = new Scanner(new FileConnection().getConnection());
 		ArrayList<Product> productList = new ArrayList<>();
 		while (sc.hasNext()) {
 			String data = sc.nextLine();
@@ -39,7 +39,7 @@ public class ProductDao {
 	}
 
 	public Products getPrice(String price) {
-		Scanner sc = new FileConnection().getConnection();
+		Scanner sc = new Scanner(new FileConnection().getConnection());
 		ArrayList<Product> productList = new ArrayList<>();
 		while (sc.hasNext()) {
 			String data = sc.nextLine();
@@ -52,7 +52,7 @@ public class ProductDao {
 	}
 
 	public Products getColor(String color) {
-		Scanner sc = new FileConnection().getConnection();
+		Scanner sc = new Scanner(new FileConnection().getConnection());
 		ArrayList<Product> productList = new ArrayList<>();
 		while (sc.hasNext()) {
 			String data = sc.nextLine();
@@ -65,7 +65,7 @@ public class ProductDao {
 	}
 
 	public Products getSize(String size) {
-		Scanner sc = new FileConnection().getConnection();
+		Scanner sc = new Scanner(new FileConnection().getConnection());
 		ArrayList<Product> productList = new ArrayList<>();
 		while (sc.hasNext()) {
 			String data = sc.nextLine();

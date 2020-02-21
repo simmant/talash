@@ -6,8 +6,7 @@ import java.util.Stack;
 
 public class FileConnection {
 
-	static Stack<Scanner> fileConnectionStack = new Stack<>();
-	
+	static Stack<FileInputStream> fileConnectionStack = new Stack<>();
 	static
 	{
 		Thread t = new Thread(new Runnable() {
@@ -16,9 +15,9 @@ public class FileConnection {
 			public void run() {
 				try {
 				while(true) {
-					Scanner sc = new Scanner(new FileInputStream("/home/rita/data.txt"));
-					Thread.sleep(10000);
+					if(fileConnectionStack.isEmpty()) {
 					createConnection();
+					}
 				}
 				}catch (Exception e) {
 					e.printStackTrace();
@@ -32,13 +31,13 @@ public class FileConnection {
 	private static void createConnection()throws Exception {
 		
 		for(int i=0;i<=10;i++) {
-			Scanner sc = new Scanner(new FileInputStream("/home/rita/data.txt"));	
-			fileConnectionStack.add(sc);
+			FileInputStream fstream = new FileInputStream("/home/rita/data.txt");	
+			fileConnectionStack.add(fstream);
 		}
 	}
 	
 	
-	public Scanner getConnection() {
+	public FileInputStream getConnection() {
 	return fileConnectionStack.pop();
 	}
 	
